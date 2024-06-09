@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local PLAYER = game.Players.LocalPlayer
 local CurrentCam  = game.Workspace.CurrentCamera
-local UIS = game:GetService("UserInputService")-- Made By Mick Gordon
+local UIS = game:GetService("UserInputService")
 local WorldToViewportPoint = CurrentCam.WorldToViewportPoint
 local mouseLocation = UIS.GetMouseLocation
 
@@ -40,7 +40,7 @@ local Window = Rayfield:CreateWindow({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/luaSssssss/esplib/main/esp"))()
     end,
  })
-           --loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobCheatEngine.lua"))(
+           --loadstring(game:HttpGet("https://raw.githubusercontent.com/luaSssssss/scriptlua_s/main/script"))(
 
  local Button = Tab:CreateButton({
    Name = "fullbright click ones",
@@ -57,4 +57,21 @@ local Button = Tab:CreateButton({
       game.Lighting.FogEnd = 10000000
    end,
 })
+
+local Slider = Tab:CreateSlider({
+   Name = "Recoil,",
+   Range = {0, 100},
+   Increment = 10,
+   CurrentValue = 10,
+   Callback = function(Value)
+      local ammo = game.ReplicatedStorage.AmmoTypes
+
+     for i,v in pairs(ammo:GetChildren()) do
+     v:SetAttribute("RecoilStrength", "0")
+end
+   -- The function that takes place when the slider changes
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
 
